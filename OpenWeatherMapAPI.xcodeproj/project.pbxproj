@@ -242,8 +242,6 @@
 				1D09EE3117B12E7F005E521C /* Sources */,
 				1D09EE3217B12E7F005E521C /* Frameworks */,
 				1D09EE3317B12E7F005E521C /* Resources */,
-				245C36D5AAAF1C55B9EE1A8B /* [CP] Embed Pods Frameworks */,
-				06649799C49B0AB9C4392BC9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,8 +260,6 @@
 				64DC45C9177380AC0039B58D /* Sources */,
 				64DC45CA177380AC0039B58D /* Frameworks */,
 				64DC45CB177380AC0039B58D /* Resources */,
-				59879277689A259DEC969FA0 /* [CP] Embed Pods Frameworks */,
-				0324D084DF1482E9B90D2BE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,6 +279,11 @@
 				CLASSPREFIX = OWM;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Adrian Bak";
+				TargetAttributes = {
+					64DC45CC177380AC0039B58D = {
+						DevelopmentTeam = S4JEZRL8YY;
+					};
+				};
 			};
 			buildConfigurationList = 64DC45C8177380AC0039B58D /* Build configuration list for PBXProject "OpenWeatherMapAPI" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -330,79 +331,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0324D084DF1482E9B90D2BE9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenWeatherMapAPI/Pods-OpenWeatherMapAPI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		06649799C49B0AB9C4392BC9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenWeatherMapAPI-OSX/Pods-OpenWeatherMapAPI-OSX-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		245C36D5AAAF1C55B9EE1A8B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenWeatherMapAPI-OSX/Pods-OpenWeatherMapAPI-OSX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2E58519E9AE6FC561C23D118 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenWeatherMapAPI-OSX-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		59879277689A259DEC969FA0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenWeatherMapAPI/Pods-OpenWeatherMapAPI-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D10D02CFFB7D6C387843987A /* [CP] Check Pods Manifest.lock */ = {
@@ -411,13 +355,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenWeatherMapAPI-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -595,9 +542,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09EF28B16DAD2ECCC981F5F9 /* Pods-OpenWeatherMapAPI.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenWeatherMapAPI/OpenWeatherMapAPI-Prefix.pch";
 				INFOPLIST_FILE = "OpenWeatherMapAPI/OpenWeatherMapAPI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -607,9 +556,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3A7B9869D074AA1671F6EF4 /* Pods-OpenWeatherMapAPI.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenWeatherMapAPI/OpenWeatherMapAPI-Prefix.pch";
 				INFOPLIST_FILE = "OpenWeatherMapAPI/OpenWeatherMapAPI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
