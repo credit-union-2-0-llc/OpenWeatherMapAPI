@@ -6,6 +6,6 @@ target 'OpenWeatherMapAPI' do
 end
 
 target 'OpenWeatherMapAPI-OSX' do
-    platform :osx, '10.9'
+    platform :osx, '10.12'
     pod 'AFNetworking', '~> 3.2.1'
 end

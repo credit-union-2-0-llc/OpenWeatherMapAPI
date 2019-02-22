@@ -45,8 +45,8 @@
     [self.activityIndicator startAnimating];
     
     [_weatherAPI currentWeatherByCityName:@"Odense" withCallback:^(NSError *error, NSDictionary *result) {
-        downloadCount++;
-        if (downloadCount > 1) [self.activityIndicator stopAnimating];
+        self->downloadCount++;
+        if (self->downloadCount > 1) [self.activityIndicator stopAnimating];
         
         if (error) {
             // Handle the error
@@ -61,21 +61,21 @@
         self.currentTemp.text = [NSString stringWithFormat:@"%.1f℃",
                                  [result[@"main"][@"temp"] floatValue] ];
         
-        self.currentTimestamp.text =  [_dateFormatter stringFromDate:result[@"dt"]];
+        self.currentTimestamp.text =  [self->_dateFormatter stringFromDate:result[@"dt"]];
         
         self.weather.text = result[@"weather"][0][@"description"];
     }];
     
     [_weatherAPI forecastWeatherByCityName:@"Odense" withCallback:^(NSError *error, NSDictionary *result) {
-        downloadCount++;
-        if (downloadCount > 1) [self.activityIndicator stopAnimating];        
+        self->downloadCount++;
+        if (self->downloadCount > 1) [self.activityIndicator stopAnimating];        
         
         if (error) {
             // Handle the error;
             return;
         }
         
-        _forecast = result[@"list"];
+        self->_forecast = result[@"list"];
         [self.forecastTableView reloadData];
         
     }];
