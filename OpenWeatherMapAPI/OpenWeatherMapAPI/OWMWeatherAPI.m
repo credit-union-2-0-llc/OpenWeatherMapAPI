@@ -314,6 +314,31 @@
     [self callMethod:method withCallback:callback];
 }
 
+#pragma mark map
+-(NSString *) mapForCoordinate:(CLLocationCoordinate2D) coordinate
+               withLayer:(NSString *)layer
+                withZoom:(NSUInteger)zoom
+{
+    double latitude    = coordinate.latitude; // (φ)
+    double longitude   = coordinate.longitude;   // (λ)
+
+    double mapWidth    = sqrt(pow(4, zoom)); //https://wiki.openstreetmap.org/wiki/Zoom_levels
+    double mapHeight   = mapWidth;
+
+    // get x value
+    double x = (longitude + 180) * (mapWidth / 360);
+
+    // convert from degrees to radians
+    double latRad = latitude * M_PI / 180;
+
+    // get y value
+    double mercN = log(tan(M_PI_4 + (latRad / 2)));
+    double y     = (mapHeight / 2) - (mapWidth * mercN / (2 * M_PI));
+
+    NSString *url = [NSString stringWithFormat:@"https://tile.openweathermap.org/map/%@/%lu/%d/%d.png?APPID=%@", layer, (unsigned long)zoom, (int)x, (int)y, _apiKey];
+
+    return url;
+}
 
 
 @end

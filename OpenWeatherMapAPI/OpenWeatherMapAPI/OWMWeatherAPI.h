@@ -76,4 +76,8 @@ typedef enum {
                 withCount:(int) count
              andCallback:( void (^)( NSError* error, NSDictionary *result ) )callback;
 
+
+#pragma mark map
+//Returns the URL of the map
+-(NSString *) mapForCoordinate:(CLLocationCoordinate2D) coordinate withLayer:(NSString *)layer withZoom:(NSUInteger)zoom;
 @end
